@@ -2,6 +2,7 @@ import sys
 from timeit import default_timer as time
 import p2_t3
 import mcts_vanilla
+import mcts_vanilla_p2
 import mcts_modified
 import random_bot
 import rollout_bot
@@ -12,6 +13,7 @@ players = dict(
     rollout_bot=rollout_bot.think,
     mcts_vanilla=mcts_vanilla.think,
     mcts_modified=mcts_modified.think,
+    mcts_vanilla_p2=mcts_vanilla_p2.think,
 )
 
 board = p2_t3.Board()
@@ -33,7 +35,7 @@ if p2 not in players:
 player1 = players[p1]
 player2 = players[p2]
 
-rounds = 10
+rounds = 100
 wins = {'draw':0, 1:0, 2:0}
 
 start = time()  # To log how much time the simulation takes.
